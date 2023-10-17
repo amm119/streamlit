@@ -1,3 +1,4 @@
 streamlit
-watchdog
 requests
+pandas
+telegram
