@@ -5,7 +5,7 @@ import telegram
 import asyncio
 
 
-def send_noti(content_noti):
+def send_noti(content_noti='defaut'):
     r = requests.post("https://api.pushover.net/1/messages.json", data={
         "token": st.secrets["DB_token"],
         "user": st.secrets["DB_user"],
@@ -17,7 +17,7 @@ bot = telegram.Bot(token=st.secrets["BOT_TOKEN"])
 chat_id_ab = 831373504
 
 
-async def send_noti_tele(text_noti, file_noti=None):
+async def send_noti_tele(text_noti='defaut', file_noti=None):
     await bot.send_message(chat_id=chat_id_ab, text=text_noti)
     if file_noti != None:
         try:
