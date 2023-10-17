@@ -13,8 +13,7 @@ def send_noti(content_noti):
     })
 
 
-BOT_TOKEN = '6649978795:AAG-FQ7EXkWuYI7V8nk1NevXinwMCPBtpLs'
-bot = telegram.Bot(token=BOT_TOKEN)
+bot = telegram.Bot(token=st.secrets["BOT_TOKEN"])
 chat_id_ab = 831373504
 
 
