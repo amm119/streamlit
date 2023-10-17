@@ -20,7 +20,6 @@ chat_id_ab = 831373504
 
 async def send_noti_tele(text_noti, file_noti=None):
     await bot.send_message(chat_id=chat_id_ab, text=text_noti)
-    st.write(file_noti)
     if file_noti != None:
         try:
             await bot.send_photo(chat_id=chat_id_ab, photo=file_noti)
@@ -47,6 +46,7 @@ if action_op == 'Gửi thông báo cho anh':
         try:
             st.image(file_upload)
         except:
+            st.write('Video đang bị lỗi ó, siu nhẹ thì mới gửi được 😾')
             st.video(file_upload)
     if st.button('Gửi 💀'):
         send_noti(mess_noti)
