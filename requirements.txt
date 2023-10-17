@@ -1,4 +1,4 @@
 streamlit
 requests
 pandas
-telegram
+python-telegram-bot
