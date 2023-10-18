@@ -28,7 +28,10 @@ async def send_noti_tele(text_noti='defaut', file_noti=None):
 
 action_op = st.sidebar.selectbox(
     'Hôm nay em muốn làm gì nè',
-    'Trả dép cho anh')
+    ('Gửi thông báo cho anh',
+     'Làm nhiệm vụ (Coming soon)',
+     'Đổi quà (Coming soon)',
+     'Tích điểm bida'))
 if action_op == 'Gửi thông báo cho anh':
     st.header('Gửi thông báo cho anh')
     mess_noti = st.text_input("Ghi vô đây nè")
