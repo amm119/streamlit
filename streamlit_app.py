@@ -79,4 +79,3 @@ if action_op == 'Tích điểm bida':
     if progress_per >1 : progress_per=100
     st.progress(progress_per)
     st.write(csv_sheet)
-    st.write(minus_point)
