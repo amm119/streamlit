@@ -59,19 +59,24 @@ if action_op == 'Gửi thông báo cho anh':
 if action_op == 'Tích điểm bida':
     st.header('Tích điểm bida')
     ta_point = 1410
-    plus_point = 50
+    plus_point = 0
     url = 'https://docs.google.com/spreadsheets/d/1-OI7UEA36GsO_B5dV3k73peypSW0dFjbB98QeNCzzUs/gviz/tq?tqx=out:csv&sheet=bida'
     csv_sheet = pd.read_csv(url)
     now_point = csv_sheet.iloc[:, 1].sum()
+    minus_point = round((csv_sheet.iloc[:, 0].sum())/4)
     progress_per = (now_point+plus_point)/ta_point
     cost = csv_sheet.iloc[:, 4].str.extract(
         '(^\d*)').fillna(0).astype(int).sum()
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
     with col1:
-        st.write('Còn lại : ', str(ta_point-plus_point-now_point))
+        st.write('Còn lại : ', str(ta_point-plus_point-now_point+minus_point))
     with col2:
-        st.write(str(now_point), "/", str(ta_point-plus_point))
+        st.write("Điểm trừ :",str(minus_point))
     with col3:
         st.write("Đã chơi hết : ", str(cost[0]), "K")
+    with col4:
+        st.write(str(now_point), "/", str(ta_point-plus_point))
+    if progress_per >1 : progress_per=100
     st.progress(progress_per)
     st.write(csv_sheet)
+    st.write(minus_point)
